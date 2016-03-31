@@ -1,6 +1,7 @@
 import {expect} from 'chai'
 import {wordPattern} from '../src/word-pattern'
 
+
 describe('word pattern', () => {
   it('1', () => {
     expect(wordPattern('abba', 'dog cat cat dog')).to.equal(true)
