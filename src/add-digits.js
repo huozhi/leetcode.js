@@ -2,7 +2,9 @@
  * @param {number} num
  * @return {number}
  */
-var addDigits = function(num) {
+
+// brute force
+var addDigits_ = function(num) {
   while (num >= 10) {
     num = num.toString().split('').reduce((prev, curr) => {
       return prev += Number(curr)
@@ -11,7 +13,8 @@ var addDigits = function(num) {
   return num
 }
 
-var addDigits_ = function(num) {
+// regular pattern
+var addDigits = function(num) {
   return (num - 1) % 9 + 1
 }
 
