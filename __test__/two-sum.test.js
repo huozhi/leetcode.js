@@ -1,5 +1,8 @@
-import {expect} from 'chai'
-import {twoSum} from '../src/two-sum'
+'use strict'
+
+const expect = require('chai').expect
+const twoSum = require('../src/two-sum').twoSum
+
 
 describe('two sum', () => {
   it('1', () => {

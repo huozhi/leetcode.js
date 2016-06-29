@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -9,7 +11,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+const maxDepth = function(root) {
   if (!root) {
     return 0
   }

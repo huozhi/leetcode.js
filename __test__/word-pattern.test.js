@@ -1,5 +1,7 @@
-import {expect} from 'chai'
-import {wordPattern} from '../src/word-pattern'
+'use strict'
+
+const expect = require('chai').expect
+const wordPattern = require('../src/word-pattern').wordPattern
 
 
 describe('word pattern', () => {

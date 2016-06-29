@@ -1,5 +1,7 @@
-import {expect} from 'chai'
-import {merge} from '../src/merge-sorted-array'
+'use strict'
+
+const expect = require('chai').expect
+const merge = require('../src/merge-sorted-array').merge
 
 
 describe('merge sorted array', () => {

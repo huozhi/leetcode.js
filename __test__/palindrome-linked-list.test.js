@@ -1,6 +1,7 @@
-import {expect} from 'chai'
-import {isPalindrome} from '../src/palindrome-linked-list'
-import {LinkedList} from '../lib/linked-list'
+const expect = require('chai').expect
+
+const isPalindrome = require('../src/palindrome-linked-list').isPalindrome
+const LinkedList = require('../lib/linked-list').LinkedList
 
 
 describe('palindrome linked list', () => {

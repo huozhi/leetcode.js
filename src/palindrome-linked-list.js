@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -9,17 +11,16 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
+const isPalindrome = function(head) {
   if (!head || !head.next) {
-    console.log('empty')
     return true
   }
-  var fast = head, slow = head
+  let fast = head, slow = head
   while (fast.next && fast.next.next) {
     fast = fast.next.next
     slow = slow.next
   }
-  var tail = slow.next, pre = null, tmp
+  let tail = slow.next, pre = null, tmp
   slow.next = null
   while (tail) {
     tmp = tail.next

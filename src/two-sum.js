@@ -1,16 +1,18 @@
+'use strict'
+
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-  var copynums = nums.slice()
-  var less = (a, b) => { return a - b }
+const twoSum = function(nums, target) {
+  const copynums = nums.slice()
+  const less = (a, b) => { return a - b }
   nums.sort(less)
-  var subs = nums.map(num => {
+  const subs = nums.map(num => {
     return target - num
   })
-  var i = 0, j = nums.length - 1
+  let i = 0, j = nums.length - 1
   while (i < j) {
     if (nums[i] === subs[j]) {
       break
@@ -20,7 +22,7 @@ var twoSum = function(nums, target) {
       j--
     }
   }
-  var first, second
+  let first, second
   first = copynums.indexOf(nums[i])
   second = copynums.indexOf(target - nums[i])
   if (first === second) {
@@ -28,6 +30,5 @@ var twoSum = function(nums, target) {
   }
   return [first, second].sort(less)
 }
-
 
 module.exports = {twoSum}

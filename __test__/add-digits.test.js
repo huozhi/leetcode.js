@@ -1,5 +1,9 @@
-import {expect} from 'chai'
-import {addDigits, addDigits_} from '../src/add-digits'
+'use strict'
+
+const expect = require('chai').expect
+const solution = require('../src/add-digits')
+const addDigits = solution.addDigits
+const addDigits_ = solution.addDigits_
 
 
 describe('add digits', () => {

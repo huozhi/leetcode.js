@@ -16,14 +16,16 @@ leet.js
 
 ### Test
 
+Simply test all problems
+
 ```
 npm test
 ```
 
-or
+or test single problem
 
 ```
-mocha --compilers js:babel-core/register __test__/`problem-name`.test.js
+mocha __test__/`problem-name`.test.js
 ```
 
 ### LICENSE

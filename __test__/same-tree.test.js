@@ -1,6 +1,8 @@
-import {expect} from 'chai'
-import {isSameTree} from '../src/same-tree'
-import {BinaryTree} from '../lib/binary-tree'
+'use strict'
+
+const expect = require('chai').expect
+const isSameTree = require('../src/same-tree').isSameTree
+const BinaryTree = require('../lib/binary-tree').BinaryTree
 
 describe('same tree', () => {
   it('1', () => {
