@@ -1,5 +1,3 @@
-'use strict'
-
 /**
 
 Given a pattern and a string str, find if str follows the same pattern.
@@ -21,7 +19,7 @@ You may assume pattern contains only lowercase letters, and str contains lowerca
  * @return {boolean}
  */
 
-const wordPattern = function(pattern, str) {
+const wordPattern = (pattern, str) => {
   const pdict = {}, sdict = {}
   let pv, sv
   str = str.split(/\ +/)

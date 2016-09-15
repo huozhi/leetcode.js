@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -11,7 +9,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-const isPalindrome = function(head) {
+const isPalindrome = (head) => {
   if (!head || !head.next) {
     return true
   }

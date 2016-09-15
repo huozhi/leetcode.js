@@ -1,11 +1,9 @@
-'use strict'
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function(nums, target) {
+const twoSum = (nums, target) => {
   const copynums = nums.slice()
   const less = (a, b) => { return a - b }
   nums.sort(less)

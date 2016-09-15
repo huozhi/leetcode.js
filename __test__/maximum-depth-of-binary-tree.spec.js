@@ -1,9 +1,6 @@
-'use strict'
-
-const expect = require('chai').expect
-const maxDepth = require('../src/maximum-depth-of-binary-tree').maxDepth
-const BinaryTree = require('../lib/binary-tree').BinaryTree
-
+const {expect} = require('chai')
+const {maxDepth} = require('../src/maximum-depth-of-binary-tree')
+const {BinaryTree} = require('../lib/binary-tree')
 
 describe('maximum depth of binary tree', () => {
   it('1', () => {

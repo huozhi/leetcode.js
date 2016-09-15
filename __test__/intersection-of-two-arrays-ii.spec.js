@@ -1,6 +1,5 @@
-const expect = require('chai').expect
-const intersect = require('../src/intersection-of-two-arrays-ii').intersect
-
+const {expect} = require('chai')
+const {intersect} = require('../src/intersection-of-two-arrays-ii')
 
 describe('intersection of two arrays ii', () => {
   it('1', () => {

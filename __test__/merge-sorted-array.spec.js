@@ -1,8 +1,5 @@
-'use strict'
-
-const expect = require('chai').expect
-const merge = require('../src/merge-sorted-array').merge
-
+const {expect} = require('chai')
+const {merge} = require('../src/merge-sorted-array')
 
 describe('merge sorted array', () => {
   it('1', () => {

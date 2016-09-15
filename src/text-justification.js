@@ -1,11 +1,9 @@
-'use strict'
-
 /**
  * @param {string[]} words
  * @param {number} maxWidth
  * @return {string[]}
  */
-const fullJustify = function(words, maxWidth) {
+const fullJustify = (words, maxWidth) => {
   const justified = []
   const wc = words.length
   let i = 0

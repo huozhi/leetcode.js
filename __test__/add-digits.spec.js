@@ -1,14 +1,12 @@
-'use strict'
-
-const expect = require('chai').expect
-const solution = require('../src/add-digits')
-const addDigits = solution.addDigits
-const addDigits_ = solution.addDigits_
-
+const {expect} = require('chai')
+const {addDigits, addDigits_2} = require('../src/add-digits')
 
 describe('add digits', () => {
   it('1', () => {
     expect(addDigits(38)).to.equal(2)
-    expect(addDigits_(38)).to.equal(2)
+  })
+
+  it('2', () => {
+    expect(addDigits_2(38)).to.equal(2)
   })
 })

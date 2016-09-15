@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -12,7 +10,7 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-const isSameTree = function(p, q) {
+const isSameTree = (p, q) => {
   if (!p && !q) {
     return true
   } else if (p && q) {

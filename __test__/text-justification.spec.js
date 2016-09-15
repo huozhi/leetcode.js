@@ -1,8 +1,5 @@
-'use strict'
-
 const expect = require('chai').expect
 const fullJustify = require('../src/text-justification').fullJustify
-
 
 describe('text justification', () => {
   it('1', () => {

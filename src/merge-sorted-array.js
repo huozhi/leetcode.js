@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * @param {number[]} nums1
  * @param {number} m
@@ -7,7 +5,7 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-const merge = function(nums1, m, nums2, n) {
+const merge = (nums1, m, nums2, n) => {
   let i = m - 1,
     j = n - 1,
     k = m + n - 1

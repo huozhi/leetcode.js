@@ -3,7 +3,7 @@
  * @param  {number[]} nums2
  * @return {number[]}
  */
-const intersect = function(nums1, nums2) {
+const intersect = (nums1, nums2) => {
   const len1 = nums1.length, len2 = nums2.length
   const sortFunc = (a, b) => a - b
   let i = 0, j = 0
