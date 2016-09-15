@@ -4,7 +4,7 @@
  */
 
 // brute force
-const addDigits_2 = function(num) {
+const addDigits2 = function(num) {
   while (num >= 10) {
     num = num.toString().split('').reduce((prev, curr) => {
       return prev += Number(curr)
@@ -18,4 +18,4 @@ const addDigits = function(num) {
   return (num - 1) % 9 + 1
 }
 
-module.exports = {addDigits, addDigits_2}
+module.exports = {addDigits, addDigits2}

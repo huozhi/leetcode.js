@@ -6,7 +6,7 @@ describe('maximum depth of binary tree', () => {
   it('1', () => {
     const array = [3, 1, 5, 2, 4]
     const tree = new BinaryTree()
-    tree.buildFromArray(array)
+    tree.formArray(array)
     expect(maxDepth(tree.root)).to.equal(3)
   })
 })
