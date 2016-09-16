@@ -2,39 +2,44 @@
  * @param {string} s
  * @return {string}
  */
-const decodeString = s => {
-  const strs = []
+const decodeString = (s) => {
+  const ss = [] // string stack
   const cnts = []
+  let str = ''
 
-  const isAlpha = c => /[a-zA-Z]/.test(c)
-  const isNumber = c => /[0-9]/.test(c)
-  const mergeString = str => {
-    if (strs.length && isAlpha(strs[strs.length - 1])) {
-      strs.push(`${strs.pop()}${str}`)
-    } else {
-      strs.push(str)
-    }
-  }
+  const isAlpha = (c) => /[a-zA-Z]/.test(c)
+  const isNumber = (c) => /[0-9]/.test(c)
 
-  for (let i = 0; i < s.length; ) {
-    let curr = i
+  for (let i = 0; i < s.length; i++) {
     if (isNumber(s[i])) {
-      while (i < s.length && isNumber(s[i])) { i++ }
-      cnts.push(parseInt(s.slice(curr, i)))
+      if (i === 0 || isNumber(s[i - 1])) {
+        str += s[i]
+      } else {
+        ss.push(str) // a2[c]
+        str = s[i]
+      }
     } else if (isAlpha(s[i])) {
-      while (i < s.length && isAlpha(s[i])) { i++ }
-      mergeString(s.slice(curr, i))
+      if (i === 0 || isAlpha(s[i - 1])) {
+        str += s[i]
+      } else {
+        str = s[i]
+      }
     } else if (s[i] === '[') {
-      strs.push('[')
-      i++
+      ss.push('[')
+      cnts.push(+str)
+      str = ''
     } else if (s[i] === ']') {
-      const tmpString = strs.pop().repeat(cnts.pop())
-      strs.pop()
-      mergeString(tmpString)
-      i++
+      let tmp = str
+      let top = ss.pop()
+      while (top !== '[') {
+        tmp = top + tmp
+        top = ss.pop()
+      }
+      ss.push(tmp.repeat(cnts.pop()))
+      str = ''
     }
   }
-  return strs.join('')
+  return ss.join('') + str
 }
 
 module.exports = {decodeString}

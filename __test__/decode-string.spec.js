@@ -17,4 +17,8 @@ describe('decode string', () => {
   it('4', () => {
     expect(decodeString('sd2[f2[e]g]i')).to.equal('sdfeegfeegi')
   })
+
+  it('5', () => {
+    expect(decodeString('2[2[a]2[b]2[c]]')).to.equal('aabbccaabbcc')
+  })
 })

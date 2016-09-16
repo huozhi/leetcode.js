@@ -1,16 +1,7 @@
-# Leet.js
-> Leetcode solution in javascript. Test each problem using mocha.
+# :checkered_flag: Leet.js
+> Leetcode solution in javascript. Test each problems with mocha.
 
-### About
-
-I use es6 syntax to write all test cases with mocha. Also, for fast building test cases of data structures such as linked list and binary tree, I wrote some utility classes for help.
-
-```sh
-leet.js
-  ├── __test__ # mocha test case
-  ├── lib      # utilities
-  └── src      # problem solutions
-```
+### Setup
 
 ```sh
 npm install
@@ -18,11 +9,11 @@ npm install
 
 ### Test
 
-Simply test all problems
-
-```
+```sh
 npm test
 ```
+
+Mocha will print all test cases result.
 
 ### LICENSE
 
