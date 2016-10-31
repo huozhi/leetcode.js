@@ -1,6 +1,6 @@
 const {expect} = require('chai')
+const BinaryTree = require('@huozhi/collection/lib/binary-tree').default
 const {maxDepth} = require('../src/maximum-depth-of-binary-tree')
-const BinaryTree = require('../lib/binary-tree')
 
 describe('maximum depth of binary tree', () => {
   it('1', () => {

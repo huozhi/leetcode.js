@@ -1,5 +1,5 @@
 const {expect} = require('chai')
-const LinkedList = require('../lib/linked-list')
+const LinkedList = require('@huozhi/collection/lib/linked-list').default
 const {rotateRight} = require('../src/rotate-list')
 
 describe('rotate list', () => {

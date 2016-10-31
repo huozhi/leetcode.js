@@ -1,6 +1,6 @@
 const {expect} = require('chai')
+const LinkedList = require('@huozhi/collection/lib/linked-list').default
 const {isPalindrome} = require('../src/palindrome-linked-list')
-const LinkedList = require('../lib/linked-list')
 
 describe('palindrome linked list', () => {
   it('1', () => {
