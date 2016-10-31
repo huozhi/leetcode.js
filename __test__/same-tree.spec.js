@@ -1,6 +1,6 @@
 const {expect} = require('chai')
 const {isSameTree} = require('../src/same-tree')
-const {BinaryTree} = require('../lib/binary-tree')
+const BinaryTree = require('../lib/binary-tree')
 
 describe('same tree', () => {
   it('1', () => {

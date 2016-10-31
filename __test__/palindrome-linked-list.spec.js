@@ -1,6 +1,6 @@
 const {expect} = require('chai')
 const {isPalindrome} = require('../src/palindrome-linked-list')
-const {LinkedList} = require('../lib/linked-list')
+const LinkedList = require('../lib/linked-list')
 
 describe('palindrome linked list', () => {
   it('1', () => {
@@ -12,7 +12,7 @@ describe('palindrome linked list', () => {
     const result = isPalindrome(new LinkedList().formArray([1, 2, 1]))
     expect(result).to.equal(true)
   })
-  
+
   it('3', () => {
     const result = isPalindrome(new LinkedList().formArray([1, 2, 2, 1]))
     expect(result).to.equal(true)
