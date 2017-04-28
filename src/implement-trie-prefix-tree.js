@@ -72,4 +72,4 @@ class Trie {
  * trie.search("key");
  */
 
-module.exports = {Trie}
+module.exports = Trie

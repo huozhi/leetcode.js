@@ -17,4 +17,4 @@ const summaryRanges = (nums) => {
   )
 }
 
-module.exports = {summaryRanges}
+module.exports = summaryRanges

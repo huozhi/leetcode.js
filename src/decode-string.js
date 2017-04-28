@@ -42,4 +42,4 @@ const decodeString = (s) => {
   return ss.join('') + str
 }
 
-module.exports = {decodeString}
+module.exports = decodeString

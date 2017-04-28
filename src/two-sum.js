@@ -29,4 +29,4 @@ const twoSum = (nums, target) => {
   return [first, second].sort(less)
 }
 
-module.exports = {twoSum}
+module.exports = twoSum

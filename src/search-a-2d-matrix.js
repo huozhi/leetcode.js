@@ -20,6 +20,4 @@ const searchMatrix = (matrix, target) => {
   return false
 }
 
-module.exports = {
-  searchMatrix
-}
+module.exports = searchMatrix

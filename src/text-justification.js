@@ -57,4 +57,4 @@ const fullJustify = (words, maxWidth) => {
   return justified
 }
 
-module.exports = {fullJustify}
+module.exports = fullJustify

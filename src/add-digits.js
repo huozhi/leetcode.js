@@ -18,4 +18,4 @@ const addDigits = function(num) {
   return (num - 1) % 9 + 1
 }
 
-module.exports = {addDigits, addDigits2}
+module.exports = addDigits

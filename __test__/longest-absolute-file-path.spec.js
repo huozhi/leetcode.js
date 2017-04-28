@@ -1,5 +1,4 @@
-const {expect} = require('chai')
-const {lengthLongestPath} = require('../src/longest-absolute-file-path')
+const lengthLongestPath = require('../src/longest-absolute-file-path')
 
 describe('longest-absolute-file-path', () => {
   it('1', () => {

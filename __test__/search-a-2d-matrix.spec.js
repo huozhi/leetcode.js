@@ -1,5 +1,4 @@
-const {expect} = require('chai')
-const {searchMatrix} = require('../src/search-a-2d-matrix')
+const searchMatrix = require('../src/search-a-2d-matrix')
 
 describe('search a 2d matrix', () => {
   it('1', () => {
@@ -8,11 +7,11 @@ describe('search a 2d matrix', () => {
       [10, 11, 16, 20],
       [23, 30, 34, 50],
     ]
-    expect(searchMatrix(m, 3)).to.equal(true)
+    expect(searchMatrix(m, 3)).toBe(true)
   })
 
   it('2', () => {
     const m = [[1]]
-    expect(searchMatrix(m, 0)).to.equal(false)
+    expect(searchMatrix(m, 0)).toBe(false)
   })
 })

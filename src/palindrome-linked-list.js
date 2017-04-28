@@ -37,4 +37,4 @@ const isPalindrome = (head) => {
   return true
 }
 
-module.exports = {isPalindrome}
+module.exports = isPalindrome

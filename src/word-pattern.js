@@ -45,4 +45,4 @@ const wordPattern = (pattern, str) => {
   return true
 }
 
-module.exports = {wordPattern}
+module.exports = wordPattern

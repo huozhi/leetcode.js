@@ -8,4 +8,4 @@ const intersection = (nums1, nums2) => {
   return Array.from(new Set(nums2.filter(x => s1.has(x))))
 }
 
-module.exports = {intersection}
+module.exports = intersection

@@ -25,4 +25,4 @@ const intersect = (nums1, nums2) => {
   return ans
 }
 
-module.exports = {intersect}
+module.exports = intersect

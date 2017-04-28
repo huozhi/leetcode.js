@@ -21,4 +21,4 @@ const lengthLongestPath = function(input) {
   return maxLength
 }
 
-module.exports = {lengthLongestPath}
+module.exports = lengthLongestPath

@@ -1,16 +1,15 @@
-const {expect} = require('chai')
-const LinkedList = require('@huozhi/collection/lib/linked-list').default
-const {rotateRight} = require('../src/rotate-list')
+const LinkedList = require('../utils/linked-list')
+const rotateRight = require('../src/rotate-list')
 
 describe('rotate list', () => {
   it('1', () => {
-    const list = new LinkedList().formArray([1, 2, 3, 4, 5])
-    const result = new LinkedList().formArray([4, 5, 1, 2, 3])
-    expect(rotateRight(list, 2)).to.eql(result)
+    const list = new LinkedList().fromArray([1, 2, 3, 4, 5])
+    const result = new LinkedList().fromArray([4, 5, 1, 2, 3])
+    expect(rotateRight(list, 2)).toEqual(result)
   })
 
   it('2', () => {
-    const list = new LinkedList().formArray([])
-    expect(rotateRight(list, 0)).to.eql(list)
+    const list = new LinkedList().fromArray([])
+    expect(rotateRight(list, 0)).toEqual(list)
   })
 })

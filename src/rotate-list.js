@@ -30,4 +30,4 @@ const rotateRight = (head, k) => {
   return curr
 }
 
-module.exports = {rotateRight}
+module.exports = rotateRight

@@ -21,4 +21,4 @@ const validUtf8 = (data) => {
   return count === 0
 }
 
-module.exports = {validUtf8}
+module.exports = validUtf8

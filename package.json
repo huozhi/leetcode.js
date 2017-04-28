@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "leetcode javascript solution",
   "scripts": {
-    "test": "mocha __test__"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -14,15 +14,8 @@
     "javascript"
   ],
   "author": "huozhi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/huozhi/leetcode.js/issues"
-  },
-  "homepage": "https://github.com/huozhi/leetcode.js",
   "devDependencies": {
-    "@huozhi/collection": "^0.1.1",
-    "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "jest": "^19.0.2"
   },
   "engins": {
     "node": ">=6.0"
