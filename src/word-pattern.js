@@ -26,7 +26,7 @@ const wordPattern = (pattern, str) => {
   if (pattern.length !== str.length) {
     return false
   }
-  for (var len = pattern.length, i = 0; i < len; i++) {
+  for (let i = 0; i < pattern.length; i++) {
     pv = pattern[i], sv = str[i]
     if (!pdict[pv]) {
       pdict[pv] = sv

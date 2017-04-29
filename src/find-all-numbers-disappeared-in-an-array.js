@@ -1,4 +1,11 @@
-const findDisappearedNumbers = function(nums) {
+/*
+ * This is not the best solution. The easiest way is mark each position as bool flag.
+ * Hash each value like nums[ nums[i] ], to meet the correct position and flip it.
+ * The values which flipped twice are the duplicated values.
+ *
+ * reference: find-all-duplicates-in-an-array.js
+ */
+var findDisappearedNumbers = function(nums) {
   const disppares = []
   let i = 0
   while (i < nums.length) {
