@@ -6,6 +6,18 @@ class ListNode {
 }
 
 class LinkedList {
+  static fromArray(array) {
+    return new LinkedList().fromArray(array)
+  }
+
+  static toArray(listHead) {
+    const array = []
+    for (let curr = listHead; curr; curr = curr.next) {
+      array.push(curr.val)
+    }
+    return array
+  }
+
   constructor() {
     this.head = this.tail = null
     this.length = 0
