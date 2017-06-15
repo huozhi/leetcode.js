@@ -9,16 +9,16 @@ const letterMap = {
   9: ['w', 'x', 'y', 'z'],
 }
 
-const permute = (digits, i, j, item, results) => {
+function* permute(digits, i, j, item) {
   if (i === digits.length) {
     if (item) {
-      results.push(item)
+      yield item
     }
     return
   }
   const chr = digits[i]
   for (let k = 0; k < letterMap[chr].length; k++) {
-    permute(digits, i + 1, k, item + letterMap[chr][k], results)
+    yield* permute(digits, i + 1, k, item + letterMap[chr][k])
   }
 }
 
@@ -26,9 +26,6 @@ const permute = (digits, i, j, item, results) => {
  * @param {string} digits
  * @return {string[]}
  */
-const letterCombinations = function(digits) {
-  const results = []
-  permute(digits.replace(/1|0/g, ''), 0, 0, '', results)
-  return results
-};
-
+const letterCombinations = (digits) => (
+  Array.from(permute(digits.replace(/1|0/g, ''), 0, 0, ''))
+)
