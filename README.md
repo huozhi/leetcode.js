@@ -4,12 +4,12 @@
 ### Setup
 
 ```sh
-yarn install
+npm install
 ```
 
 ### Test
 
 ```sh
-yarn test
+npm test
 ```
 
