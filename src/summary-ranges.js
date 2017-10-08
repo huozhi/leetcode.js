@@ -2,19 +2,18 @@
  * @param {number[]} nums
  * @return {string[]}
  */
-const summaryRanges = (nums) => {
-  const len = nums.length
+const summaryRanges = function(nums) {
   const ranges = []
-  let i = 0
-  for (; i < len; ) {
-    let j = i + 1
-    for (; j < len && nums[j] - nums[i] == j - i; j++) {}
-    ranges.push([i, j - 1])
-    i = j
+  let start = 0
+  while (start < nums.length) {
+    let end = start
+    while (end + 1 < nums.length && nums[end + 1] - 1 === nums[end]) {
+      end++
+    }
+    ranges.push(start === end ? [nums[start]] : [nums[start], nums[end]])
+    start = end + 1
   }
-  return ranges.map(([lhs, rhs]) =>
-    lhs === rhs ? `${nums[lhs]}` : `${nums[lhs]}->${nums[rhs]}`
-  )
+  return ranges.map(r => r.join('->'))
 }
 
 module.exports = summaryRanges
