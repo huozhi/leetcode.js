@@ -1,9 +1,9 @@
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
- * @return {boolean}
+ * @return {number[]}
  */
-const canFinish = function(numCourses, prerequisites) {
+const findOrder = function(numCourses, prerequisites) {
   const queue = []
   const graph = Object.create(null)
   const indgree = Array(numCourses).fill(0)
@@ -18,10 +18,10 @@ const canFinish = function(numCourses, prerequisites) {
     if (dgree == 0) queue.push(id)
   })
 
-  let count = 0
+  const order = []
   while (queue.length) {
     const front = queue.shift()
-    count++
+    order.push(front)
     const neighbors = graph[front] || []
     neighbors.forEach(label => {
       --indgree[label]
@@ -30,7 +30,7 @@ const canFinish = function(numCourses, prerequisites) {
       }
     })
   }
-  return count === numCourses
+  return order.length === numCourses ? order : []
 }
 
-module.exports = canFinish
+module.exports = findOrder
