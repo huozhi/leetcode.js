@@ -3,26 +3,19 @@
  * @param {string} word2
  * @return {number}
  */
-const minDistance = function(word1, word2) {
-    const dp = Array.from({length: word1.length + 1}).map(() => Array(word2.length + 1).fill(0))
-    
-    for (let i = 0; i <= word1.length; i++) {
-        dp[i][0] = i
-    }
-    
-    for (let j = 0; j <= word2.length; j++) {
-        dp[0][j] = j
-    }
-    
-    for (let i = 1; i <= word1.length; i++) {
-        for (let j = 1; j <= word2.length; j++) {
-            if (word1[i - 1] === word2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1]
-            } else {
-                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1
-            }     
+var minDistance = function(word1, word2) {
+    const l1 = word1.length, l2 = word2.length
+    let prev = Array(l2 + 1).fill().map((_, i) => i)
+    for (let i = 1; i <= l1; i++) {
+        let curr = Array(l2 + 1).fill()
+        curr[0] = i
+        for (let j = 1; j <= l2; j++) {
+            if (word1[i - 1] !== word2[j - 1])
+                curr[j] = Math.min(prev[j - 1], curr[j - 1], prev[j]) + 1
+            else
+                curr[j] = prev[j - 1]
         }
+        prev = curr
     }
-    return dp[word1.length][word2.length]
+    return prev[l2]
 }
-
