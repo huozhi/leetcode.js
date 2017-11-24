@@ -1,3 +1,4 @@
+// TODO: rewrite
 /**
  * @param {string[]} words
  * @param {number} maxWidth

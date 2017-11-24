@@ -1,3 +1,7 @@
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
 var convertBST = function(root) {
   convertBSTHelper(root, 0)
   return root

@@ -1,4 +1,4 @@
-const dfs = (root, path, sum, res, target) => {
+const backtrack = (root, path, sum, res, target) => {
   if (!root) {
     return
   }
@@ -10,8 +10,8 @@ const dfs = (root, path, sum, res, target) => {
     }
     return
   }
-  dfs(root.left, curr, sum, res, target)
-  dfs(root.right, curr, sum, res, target)
+  backtrack(root.left, curr, sum, res, target)
+  backtrack(root.right, curr, sum, res, target)
 }
 
 /**
@@ -21,6 +21,6 @@ const dfs = (root, path, sum, res, target) => {
  */
 const pathSum = function(root, sum) {
   const res = []
-  dfs(root, [], 0, res, sum)
+  backtrack(root, [], 0, res, sum)
   return res
 }

@@ -1,4 +1,4 @@
-const dfs = (root, path, res) => {
+const backtrack = (root, path, res) => {
   if (!root) {
     return
   }
@@ -8,8 +8,8 @@ const dfs = (root, path, res) => {
     return
   }
 
-  dfs(root.left, currentPath, res)
-  dfs(root.right, currentPath, res)
+  backtrack(root.left, currentPath, res)
+  backtrack(root.right, currentPath, res)
 }
 
 /**
@@ -18,7 +18,7 @@ const dfs = (root, path, res) => {
  */
 const binaryTreePaths = function(root) {
   const res = []
-  dfs(root, [], res)
+  backtrack(root, [], res)
 
   return res.map(path => path.join('->'))
 }
