@@ -1,28 +1,33 @@
-/*
- * This is not the best solution. The easiest way is mark each position as bool flag.
- * Hash each value like nums[ nums[i] ], to meet the correct position and flip it.
- * The values which flipped twice are the duplicated values.
- *
- * reference: find-all-duplicates-in-an-array.js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
  */
 var findDisappearedNumbers = function(nums) {
-  const disppares = []
-  let i = 0
-  while (i < nums.length) {
-    if (nums[i] > 0 && (nums[i] !== i + 1) && (i !== nums[i] - 1)) {
-      if (nums[i] === nums[nums[i] - 1]) {
-        nums[i] = -1
-        i++
-      }
-      let tmp = nums[nums[i] - 1]
-      nums[nums[i] - 1] = nums[i]
-      nums[i] = tmp
-    } else {
-      i++
+    let start = 0
+    let tmp = null
+    while (start < nums.length) {
+        let j = start
+        tmp = null
+
+        while (nums[j] !== j + 1) {
+            const val = nums[j]
+            nums[j] = tmp
+            j = val - 1
+            tmp = val
+            if (val === null) {
+              break
+            }
+        }
+        start++
     }
-  }
-  nums.forEach((val, i) => { if (val === -1) disppares.push(i + 1) })
-  return disppares
+    const res = []
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i + 1) res.push(i + 1)
+    }
+    return res
 };
+
+
+console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1]))
 
 module.exports = findDisappearedNumbers
