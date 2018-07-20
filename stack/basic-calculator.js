@@ -1,49 +1,45 @@
-var isNumber = (val) => /[0-9]/.test(val)
-var isAlpha = (val) => /[a-z]/.test(val)
-var isEmpty = (arr) => arr.length === 0
-var top = (stack) => stack[stack.length - 1]
+const isNumber = (ch) => ch >= '0' && ch <= '9'
+const isEmpty = (arr) => arr.length === 0
+const top = (stack) => stack[stack.length - 1]
+
+const prior = (ch) => {
+  if (isNumber(ch)) {
+    return 1
+  } else if (ch === '+' || ch === '-') {
+    return 2
+  } else if (ch === '*' || ch === '/') {
+    return 3
+  }
+  return 0
+}
+
+const evaluate = (a, b, op) => {
+  switch (op) {
+    case '+': return parseInt(a + b)
+    case '-': return parseInt(a - b)
+    case '*': return parseInt(a * b)
+    case '/': return parseInt(a / b)
+  }
+}
 
 /**
  * @param {string} s
  * @return {number}
  */
-var calculate = function(str) {
-  var i = 0
-  var snum = []
-  var sop = []
-
-  var prior = (val) => {
-    if (isNumber(val)) {
-      return 0
-    } else if (isAlpha(val)) {
-      return 1
-    } else if (/\+|-/.test(val)) {
-      return 2
-    } else if (/\*|\//.test(val)) {
-      return 3
-    }
-    return -1
-  }
-
-  var evaluate = (a, b, op) => {
-    switch (op) {
-      case '+': return parseInt(a + b, 10)
-      case '-': return parseInt(a - b, 10)
-      case '*': return parseInt(a * b, 10)
-      case '/': return parseInt(a / b, 10)
-    }
-  }
+const calculate = function(str) {
+  let i = 0
+  const snum = []
+  const sop = []
   
-  var evaluateNext = () => {
-    let op = sop.pop()
-    let b = snum.pop()
-    let a = snum.pop()
-    snum.push(evaluate(a, b, op))
+  const accumulate = () => {
+    const b = snum.pop()
+    const a = snum.pop()
+    snum.push(evaluate(a, b, sop.pop()))
   }
 
   while (i < str.length) {
-    let ch = str[i]
-    if (/\s/.test(ch)) {
+    const ch = str[i]
+    if (ch === ' ') {
       i++
       continue
     }
@@ -54,13 +50,13 @@ var calculate = function(str) {
         num += str[i]
         i++
       }
-      snum.push(parseInt(num, 10))
+      snum.push(parseInt(num))
     } else if (ch === '(') {
       sop.push('(')
       i++
     } else if (ch === ')') {
       while (top(sop) !== '(') {
-        evaluateNext()
+        accumulate()
       }
       sop.pop()
       i++
@@ -69,7 +65,7 @@ var calculate = function(str) {
         sop.push(ch)
       } else {
         while (!isEmpty(sop) && prior(top(sop)) >= prior(ch)) {
-          evaluateNext()
+          accumulate()
         }
         sop.push(ch)
       }
@@ -78,7 +74,7 @@ var calculate = function(str) {
   }
 
   while (!isEmpty(sop)) {
-    evaluateNext()
+    accumulate()
   }
   return top(snum)
 }
