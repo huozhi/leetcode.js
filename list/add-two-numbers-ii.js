@@ -14,50 +14,60 @@ function ListNode(val) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-const addTwoNumbers = function(l1, l2) {
-  const stack1 = []
-  const stack2 = []
-  let p1 = l1
-  let p2 = l2
-  let head = null
-  let carry = 0
-
-  const insertNodeAtFront = (val) => {
-    const tmp = new ListNode(val)
-    tmp.next = head
-    head = tmp
-  }
-
-  while (p1) {
-    stack1.push(p1.val)
+const addTwoNumbers = function (l1, l2) {
+  let p1 = l1,
+    p2 = l2
+  while (p1 && p2) {
     p1 = p1.next
-  }
-
-  while (p2) {
-    stack2.push(p2.val)
     p2 = p2.next
   }
-
-  while (stack1.length && stack2.length) {
-    const val = stack1.pop() + stack2.pop() + carry
-    carry = val >= 10 ? 1 : 0
-    insertNodeAtFront(val % 10, head)
+  let rest = p1 || p2
+  let long = rest === p1 ? l1 : l2
+  let short = rest === p1 ? l2 : l1
+  let pl = long
+  let ps = short
+  while (pl && rest) {
+    rest = rest.next
+    pl = pl.next
+  }
+  let dummy = new ListNode(0)
+  let pd = dummy
+  for (let p = long; p !== pl; p = p.next) {
+    pd.next = new ListNode(p.val)
+    pd = pd.next
   }
 
-  while (stack1.length) {
-    const val = stack1.pop() + carry
-    carry = val >= 10 ? 1 : 0
-    insertNodeAtFront(val % 10, head)
+  while (ps && pl) {
+    pd.next = new ListNode(ps.val + pl.val)
+    pd = pd.next
+    ps = ps.next
+    pl = pl.next
   }
-  while (stack2.length) {
-    const val = stack2.pop() + carry
-    carry = val >= 10 ? 1 : 0
-    insertNodeAtFront(val % 10, head)
+  let carry
+  let head = dummy.next
+  let curr = head
+
+  while (head) {
+    carry = 0
+    curr = curr.next
+    if (curr && curr.val === 9) {
+      while (curr && curr.val === 9) curr = curr.next
+    }
+
+    while (head !== curr) {
+      head.val += Number(curr && curr.val >= 10)
+      head = head.next
+    }
   }
-  if (carry) {
-    insertNodeAtFront(1, head)
+
+  head = dummy.next
+  dummy.val = Number(head && head.val >= 10)
+
+  for (; head; head = head.next) {
+    head.val %= 10
   }
-  return head
+
+  return dummy.val ? dummy : dummy.next
 };
 
 module.exports = addTwoNumbers
